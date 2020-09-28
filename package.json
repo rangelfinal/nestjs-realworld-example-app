@@ -12,7 +12,8 @@
     "test": "jest --config=jest.json",
     "test:watch": "jest --watch --config=jest.json",
     "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage",
-    "test:e2e": "APIURL=http://localhost:3000/api ./e2e/run-api-tests.sh"
+    "test:e2e": "APIURL=http://localhost:3000/api ./e2e/run-api-tests.sh",
+    "test:e2e:repro": "jest --config ./e2e/jest-e2e.json"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,8 @@
   "homepage": "https://github.com/mikro-orm/nestjs-realworld-example-app#readme",
   "dependencies": {
     "@mikro-orm/core": "^4.0.7",
-    "@mikro-orm/mysql": "^4.0.7",
     "@mikro-orm/nestjs": "^4.2.0",
+    "@mikro-orm/postgresql": "^4.0.7",
     "@mikro-orm/reflection": "^4.0.7",
     "@mikro-orm/sql-highlighter": "^1.0.1",
     "@nestjs/common": "^7.4.2",

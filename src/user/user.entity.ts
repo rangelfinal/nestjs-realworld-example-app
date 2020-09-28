@@ -1,6 +1,7 @@
 import { IsEmail } from 'class-validator';
 import crypto from 'crypto';
 import {
+  BaseEntity,
   Collection,
   Entity,
   EntityRepositoryType,
@@ -14,7 +15,7 @@ import { Article } from '../article/article.entity';
 import { UserRepository } from './user.repository';
 
 @Entity()
-export class User {
+export class User extends BaseEntity<User, 'id'> {
 
   [EntityRepositoryType]?: UserRepository;
 
@@ -50,6 +51,8 @@ export class User {
   articles = new Collection<Article>(this);
 
   constructor(username: string, email: string, password: string) {
+    super();
+    
     this.username = username;
     this.email = email;
     this.password = crypto.createHmac('sha256', password).digest('hex');
